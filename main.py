@@ -1,5 +1,6 @@
 data = []
-
+group = []
+N=0
 
 def alphabet_position(text):
 
@@ -29,4 +30,36 @@ for line in open("rucksack.txt", "r"):
                 data.append(int(alphabet_position(element01)))
 
 print(sum(data))
+
+for line in open("rucksack.txt", "r"):
+
+
+    if N == 0:
+        badge_set0 = set(line.strip())
+
+    if N == 1:
+        badge_set1 = set(line.strip())
+
+    if N == 2:
+        badge_set2 = set(line.strip())
+
+    N = N + 1
+    if N == 3:
+        N = 0
+        test = badge_set0.intersection(badge_set1)
+        result = test.intersection(badge_set2)
+        group.append(int(alphabet_position(str(''.join(result)))))
+
+print(sum(group))
+
+
+
+
+
+
+
+
+
+
+
 
